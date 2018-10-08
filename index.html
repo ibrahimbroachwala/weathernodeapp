@@ -1,120 +1,104 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    	<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+      	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    	<!-- Compiled and minified JavaScript -->
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
         <script type="text/javascript" src="https://cdn.rawgit.com/monkeecreate/jquery.simpleWeather/master/jquery.simpleWeather.min.js"></script>
     <title>Weather Node App</title>
   </head>
-  <body>
-
+<body>
 
 <div class="bhotbadadiv" style="background:#039be5; height: 300px;width: 100%;"></div>
-
 	<div class="badadiv1" style="margin-top: -250px">
-
 		<div class="row">
 			<div class="col s12 m3 l3"></div>
-			<div class="col s12 m6 l6">
-			<div class="card blue-grey darken-1">
-				<div id="container" class="center" ></div>
-			</div>
-			</div>
+				<div class="col s12 m6 l6">
+					<div class="card blue-grey darken-1">
+						<div id="container" class="center" ></div>
+					</div>
+				</div>
 			<div class="col s12 m3 l3"></div>
 		</div>
-
 		<div class="row">
 			<div class="col s12 m3 l3"></div>
-			<div class="col s12 m6 l6">
-					<div class="card " id="hey">
-						<div id="container" class="center" >
-							<div id="weather"></div>
-							<a class="waves-effect waves-light btn-large js-geolocation"><i class="material-icons left">cloud</i>Use Your Location</a>
+				<div class="col s12 m6 l6">
+						<div class="card " id="hey">
+							<div id="container" class="center" >
+								<div id="weather"></div>
+								<a class="waves-effect waves-light btn-large js-geolocation"><i class="material-icons left">cloud</i>Use Your Location</a>
+							</div>
 						</div>
-					</div>
-			</div>
+				</div>
 			<div class="col s12 m3 l3"></div>
 		</div>	
-
 	</div>
+	<style type="text/css">
 
+		body {
+			background-color: #eceff1;
+		}
 
-  	<style type="text/css">
+		#hey {
+		  padding: 45px 25px;
+		}
 
+		#weather {
+		  width: 500px;
+		  margin: 0px auto;
+		  text-align: center;
+		  text-transform: uppercase;
+		}
 
-body{
-	background-color: #eceff1;
-}
+		#weather h2 {
+		  margin: 0 0 8px;
+		  color: #7cb5ec;
+		  font-weight: 300;
+		  text-align: center;
+		  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+		}
 
-#hey {
-  padding: 45px 25px;
-}
+		#weather ul {
+		  margin: 0;
+		  padding: 0;
+		}
 
+		#weather li {
+		  background: #434348;
+		  padding: 20px;
+		  display: inline-block;
+		  border-radius: 5px;
+		  color: white;
+		  font-weight: 600;
+		}
 
+		#weather .currently {
+		  margin: 0 20px;
+		}
 
+		.js-geolocation {
+		  display: block;
+		  margin: 15px auto;
+		  width: 262px;
+		  color: #fff;
+		  border: 0;
+		  border-radius: 5px;
+		  background: #7cb5ec;
+		}
 
-#weather {
-  width: 500px;
-  margin: 0px auto;
-  text-align: center;
-  text-transform: uppercase;
-}
+		btn:hover, .btn-large:hover, .btn-small:hover {
+		    background-color: #434348;
+		}
+	</style>
 
-
-
-
-
-#weather h2 {
-  margin: 0 0 8px;
-  color: #7cb5ec;
-  font-weight: 300;
-  text-align: center;
-  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
-}
-
-#weather ul {
-  margin: 0;
-  padding: 0;
-}
-
-#weather li {
-  background: #434348;
-  padding: 20px;
-  display: inline-block;
-  border-radius: 5px;
-  color: white;
-  font-weight: 600;
-}
-
-#weather .currently {
-  margin: 0 20px;
-}
-
-.js-geolocation {
-  display: block;
-  margin: 15px auto;
-  width: 262px;
-  color: #fff;
-  border: 0;
-  border-radius: 5px;
-  background: #7cb5ec;
-}
-
-btn:hover, .btn-large:hover, .btn-small:hover {
-    background-color: #434348;
-}
-
-  	</style>
-
-  <script src="script.js"></script>
+  	<script src="script.js"></script>
   </body>
 </html>
